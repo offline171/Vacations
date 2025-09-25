@@ -1,0 +1,11 @@
+Goals for this site
+ - Make the site with accounts
+ - Make the site not require an account (unless user wants to bookmark or rate)
+ - Make a list of vacation entries
+ - Each entry should include vital info about the vacation site
+ - Users should be able to bookmark vacations
+ - Users should be able to view their bookmarked vacations
+ - Users should be able to rate vacations
+ - Users should be able to view their ratings
+
+ Place to learn how to write a proper spec doc: https://github.com/github/spec-kit
