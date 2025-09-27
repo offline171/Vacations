@@ -1,9 +1,9 @@
-# Feature Specification: [FEATURE NAME]
+# Feature Specification: Homely Vacation Rating Site
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
+**Feature Branch**: `001-i-am-building`  
+**Created**: September 26, 2025  
 **Status**: Draft  
-**Input**: User description: "$ARGUMENTS"
+**Input**: User description: "I am building a vacation rating site. I want it to look homely and cozy, something more down to earth. The main attraction should of course be viewing vacation spots, where relevant information about each location will be shown in a subroute. This is also where users will be able to bookmark or rate the locations. Users must first be logged into an account to do either of these actions, but even if they don't have an account, they are still free to view the vacation spots. Users will also be able to see their account details, including looking over their past bookmarks and ratings. The vacation spot data will be mocked - you do not need to pull any info about real vacation sites for the time being."
 
 ## Execution Flow (main)
 ```
@@ -55,32 +55,38 @@ When creating this spec from a user prompt:
 ## User Scenarios & Testing *(mandatory)*
 
 ### Primary User Story
-[Describe the main user journey in plain language]
+A visitor arrives at the site and browses vacation spots. They can view details about each spot. If they wish to bookmark or rate a spot, they must log in or create an account. Once logged in, they can bookmark or rate vacation spots, and view their account details including past bookmarks and ratings.
 
 ### Acceptance Scenarios
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+1. **Given** a user is not logged in, **When** they browse vacation spots, **Then** they can view all spot details but cannot bookmark or rate.
+2. **Given** a user is logged in, **When** they view a vacation spot, **Then** they can bookmark or rate the spot.
+3. **Given** a user is logged in, **When** they visit their account page, **Then** they see their bookmarks and ratings.
 
 ### Edge Cases
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
+- What happens when a user tries to bookmark or rate without being logged in? (Prompt to log in)
+- How does the system handle duplicate bookmarks or ratings? (Prevent duplicates)
+- What if vacation spot data is unavailable? (Show error or fallback message)
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
-
-*Example of marking unclear requirements:*
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+**FR-001**: System MUST allow users to view vacation spots and details without logging in.
+**FR-002**: System MUST require users to log in before bookmarking or rating vacation spots.
+**FR-003**: System MUST allow users to create an account and log in.
+**FR-004**: System MUST allow logged-in users to bookmark vacation spots.
+**FR-005**: System MUST allow logged-in users to rate vacation spots.
+**FR-006**: System MUST show users their account details, including bookmarks and ratings.
+**FR-007**: System MUST use mocked data for vacation spots. No real data integration required.
+**FR-008**: System MUST prevent users from bookmarking or rating the same spot more than once.
+**FR-009**: System MUST display relevant information about each vacation spot in a subroute.
+**FR-010**: System MUST provide a homely and cozy visual design, using simple and comfortable elements such as warm earthy colors, minimalist aesthetic, and avoiding screen crowding.
+**FR-011**: System MUST authenticate users via email and password. Emails and passwords must be securely stored.
 
 ### Key Entities *(include if feature involves data)*
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
+**User**: Represents a site visitor or account holder. Attributes: username, password, bookmarks, ratings.
+**Vacation Spot**: Represents a location to be viewed, bookmarked, or rated. Attributes: name, description, images, mocked details.
+**Bookmark**: Represents a user's saved vacation spot. Attributes: user, vacation spot, timestamp.
+**Rating**: Represents a user's rating for a vacation spot. Attributes: user, vacation spot, rating value.
 
 ---
 
@@ -94,11 +100,11 @@ When creating this spec from a user prompt:
 - [ ] All mandatory sections completed
 
 ### Requirement Completeness
-- [ ] No [NEEDS CLARIFICATION] markers remain
-- [ ] Requirements are testable and unambiguous  
-- [ ] Success criteria are measurable
-- [ ] Scope is clearly bounded
-- [ ] Dependencies and assumptions identified
+- [x] No [NEEDS CLARIFICATION] markers remain
+- [x] Requirements are testable and unambiguous  
+- [x] Success criteria are measurable
+- [x] Scope is clearly bounded
+- [x] Dependencies and assumptions identified
 
 ---
 
