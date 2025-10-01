@@ -28,8 +28,8 @@
 - Include exact file paths in descriptions
 
 ## Phase 3.1: Setup
-- [ ] T001 Create backend and frontend project structure per implementation plan
-- [ ] T002 Initialize Node.js backend with Express, Passport, pg dependencies
+- [X] T001 Create backend and frontend project structure per implementation plan
+- [X] T002 Initialize Node.js backend with Express, Passport, pg dependencies
 - [ ] T003 Initialize EJS frontend and public assets directory
 - [ ] T004 [P] Configure linting and formatting tools (e.g., ESLint, Prettier)
 
