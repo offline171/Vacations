@@ -34,14 +34,14 @@
 - [X] T004 [P] Configure linting and formatting tools (e.g., ESLint, Prettier)
 
 ## Phase 3.2: Tests First (TDD)
-- [ ] T005 [P] Contract test POST /api/users in backend/tests/contract/test_users_post.js
-- [ ] T006 [P] Contract test POST /api/vacations in backend/tests/contract/test_vacations_post.js
-- [ ] T007 [P] Contract test POST /api/bookmarks in backend/tests/contract/test_bookmarks_post.js
-- [ ] T008 [P] Contract test POST /api/ratings in backend/tests/contract/test_ratings_post.js
-- [ ] T009 [P] Integration test user registration in backend/tests/integration/test_registration.js
-- [ ] T010 [P] Integration test vacation spot viewing in backend/tests/integration/test_vacation_view.js
-- [ ] T011 [P] Integration test bookmarking flow in backend/tests/integration/test_bookmark.js
-- [ ] T012 [P] Integration test rating flow in backend/tests/integration/test_rating.js
+- [X] T005 [P] Contract test POST /api/users in backend/tests/contract/test_users_post.js
+- [X] T006 [P] Contract test POST /api/vacations in backend/tests/contract/test_vacations_post.js
+- [X] T007 [P] Contract test POST /api/bookmarks in backend/tests/contract/test_bookmarks_post.js
+- [X] T008 [P] Contract test POST /api/ratings in backend/tests/contract/test_ratings_post.js
+- [X] T009 [P] Integration test user registration in backend/tests/integration/test_registration.js
+- [X] T010 [P] Integration test vacation spot viewing in backend/tests/integration/test_vacation_view.js
+- [X] T011 [P] Integration test bookmarking flow in backend/tests/integration/test_bookmark.js
+- [X] T012 [P] Integration test rating flow in backend/tests/integration/test_rating.js
 
 ## Phase 3.3: Core Implementation
 - [ ] T013 [P] User model in backend/src/models/user.js
