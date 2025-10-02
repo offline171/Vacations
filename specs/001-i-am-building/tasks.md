@@ -56,14 +56,14 @@
 - [X] T022 POST /api/vacations endpoint in backend/src/api/vacations.js
 - [X] T023 POST /api/bookmarks endpoint in backend/src/api/bookmarks.js
 - [X] T024 POST /api/ratings endpoint in backend/src/api/ratings.js
-- [ ] T025 Input validation and error handling in backend/src/api/middleware/validation.js
-- [ ] T026 Logging middleware in backend/src/api/middleware/logging.js
+- [X] T025 Input validation and error handling in backend/src/api/middleware/validation.js
+- [X] T026 Logging middleware in backend/src/api/middleware/logging.js
 
 ## Phase 3.4: Integration
-- [ ] T027 Connect services to PostgreSQL DB in backend/src/services/db.js
-- [ ] T028 Auth middleware using Passport in backend/src/api/middleware/auth.js
-- [ ] T029 Request/response logging in backend/src/api/middleware/logging.js
-- [ ] T030 CORS and security headers in backend/src/api/middleware/security.js
+- [X] T027 Connect services to PostgreSQL DB in backend/src/services/db.js
+- [X] T028 Auth middleware using Passport in backend/src/api/middleware/auth.js
+- [X] T029 Request/response logging in backend/src/api/middleware/logging.js
+- [X] T030 CORS and security headers in backend/src/api/middleware/security.js
 
 ## Phase 3.5: Polish
 - [ ] T031 [P] Unit tests for validation in backend/tests/unit/test_validation.js
