@@ -44,18 +44,18 @@
 - [X] T012 [P] Integration test rating flow in backend/tests/integration/test_rating.js
 
 ## Phase 3.3: Core Implementation
-- [ ] T013 [P] User model in backend/src/models/user.js
-- [ ] T014 [P] VacationSpot model in backend/src/models/vacationSpot.js
-- [ ] T015 [P] Bookmark model in backend/src/models/bookmark.js
-- [ ] T016 [P] Rating model in backend/src/models/rating.js
-- [ ] T017 UserService CRUD in backend/src/services/userService.js
-- [ ] T018 VacationService CRUD in backend/src/services/vacationService.js
-- [ ] T019 BookmarkService CRUD in backend/src/services/bookmarkService.js
-- [ ] T020 RatingService CRUD in backend/src/services/ratingService.js
-- [ ] T021 POST /api/users endpoint in backend/src/api/users.js
-- [ ] T022 POST /api/vacations endpoint in backend/src/api/vacations.js
-- [ ] T023 POST /api/bookmarks endpoint in backend/src/api/bookmarks.js
-- [ ] T024 POST /api/ratings endpoint in backend/src/api/ratings.js
+- [X] T013 [P] User model in backend/src/models/user.js
+- [X] T014 [P] VacationSpot model in backend/src/models/vacationSpot.js
+- [X] T015 [P] Bookmark model in backend/src/models/bookmark.js
+- [X] T016 [P] Rating model in backend/src/models/rating.js
+- [X] T017 UserService CRUD in backend/src/services/userService.js
+- [X] T018 VacationService CRUD in backend/src/services/vacationService.js
+- [X] T019 BookmarkService CRUD in backend/src/services/bookmarkService.js
+- [X] T020 RatingService CRUD in backend/src/services/ratingService.js
+- [X] T021 POST /api/users endpoint in backend/src/api/users.js
+- [X] T022 POST /api/vacations endpoint in backend/src/api/vacations.js
+- [X] T023 POST /api/bookmarks endpoint in backend/src/api/bookmarks.js
+- [X] T024 POST /api/ratings endpoint in backend/src/api/ratings.js
 - [ ] T025 Input validation and error handling in backend/src/api/middleware/validation.js
 - [ ] T026 Logging middleware in backend/src/api/middleware/logging.js
 
