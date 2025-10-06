@@ -66,11 +66,11 @@
 - [X] T030 CORS and security headers in backend/src/api/middleware/security.js
 
 ## Phase 3.5: Polish
-- [ ] T031 [P] Unit tests for validation in backend/tests/unit/test_validation.js
-- [ ] T032 [P] Unit tests for models in backend/tests/unit/test_models.js
-- [ ] T033 [P] Performance tests in backend/tests/performance/test_performance.js
-- [ ] T034 [P] Update documentation in specs/001-i-am-building/docs/api.md
-- [ ] T035 [P] Manual UI review and polish in frontend/views/
+- [X] T031 [P] Unit tests for validation in backend/tests/unit/test_validation.js
+- [X] T032 [P] Unit tests for models in backend/tests/unit/test_models.js
+- [X] T033 [P] Performance tests in backend/tests/performance/test_performance.js
+- [X] T034 [P] Update documentation in specs/001-i-am-building/docs/api.md
+- [X] T035 [P] Manual UI review and polish in frontend/views/
 
 ## Dependencies
 - Tests (T005-T012) before implementation (T013-T026)
