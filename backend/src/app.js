@@ -12,3 +12,5 @@ const ratingsRouter = require("./api/ratings");
 const usersRouter = require("./api/users");
 const vacationSpotRouter = require("./api/vacationSpotRouter");
 const pool = require("./services/db");
+
+const app = express();
