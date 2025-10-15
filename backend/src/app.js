@@ -14,3 +14,15 @@ const vacationSpotRouter = require("./api/vacationSpotRouter");
 const pool = require("./services/db");
 
 const app = express();
+app.set("views", path.join(__dirname, "../frontend/views"));
+app.set("view engine", "ejs");
+
+app.use(sessoin({secret: "dogs", resave: false, saveUninitialized: false}));
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
+
+app.use("/bookmarks", bookmarksRouter);
+app.use("/ratings", ratingsRouter);
+app.use("/users", usersRouter);
+app.use("/vacations", vacationSpotRouter);
