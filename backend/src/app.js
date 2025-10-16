@@ -26,3 +26,22 @@ app.use("/bookmarks", bookmarksRouter);
 app.use("/ratings", ratingsRouter);
 app.use("/users", usersRouter);
 app.use("/vacations", vacationSpotRouter);
+
+passport.use(new LocalStrategy(async (username, password, done) => {
+  try {
+    const result = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
+    const user = result.rows[0];  
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username' });
+      }
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        return done(null, false, { message: 'Incorrect password' });
+      }
+      return done(null, user);
+    } catch (err) {
+        return done(err);
+    }
+  })
+);
+
