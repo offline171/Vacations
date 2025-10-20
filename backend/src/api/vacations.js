@@ -4,4 +4,8 @@
 const { Router } = require('express');
 const vacationsRouter = Router();
 
+vacationsRouter.get("/", (req, res) => {
+    res.render("vacations");
+});
+
 module.exports = vacationsRouter;

@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use("/bookmarks", bookmarksRouter);
 app.use("/ratings", ratingsRouter);
 app.use("/users", usersRouter);
-app.use("/vacations", vacationSpotRouter);
+app.use("/", vacationSpotRouter);
 
 passport.use(new LocalStrategy(async (username, password, done) => {
   try {
