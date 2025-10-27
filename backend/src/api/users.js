@@ -4,4 +4,8 @@
 const { Router } = require('express');
 const usersRouter = Router();
 
+usersRouter.get("/", (req, res) => {
+    res.render("users");
+});
+
 module.exports = usersRouter;
