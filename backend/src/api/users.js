@@ -6,11 +6,12 @@ const usersController = require('../controllers/usersController');
 const passport = require('passport');
 const usersRouter = Router();
 
-usersRouter.get("/", usersController.getUsers);
-usersRouter.post("/login", passport.authenticate('local', {
+usersRouter.get("/sign-up", usersController.signUpForm)
+usersRouter.post("/log-in", passport.authenticate('local', {
     successRedirect: "/",
-    failureRedirect: "/login",
+    failureRedirect: "/log-in",
 }));
-usersRouter.get("/logout", usersController.logOut);
+usersRouter.get("/log-out", usersController.logOut);
+usersRouter.get("/", usersController.getUsers);
 
 module.exports = usersRouter;

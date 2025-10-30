@@ -13,3 +13,7 @@ exports.logOut = (req, res) => {
         return next(error);
     }
 }
+
+exports.signUpForm = (req, res) => {
+    res.render("sign-up");
+}
