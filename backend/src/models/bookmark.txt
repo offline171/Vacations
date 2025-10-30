@@ -1,0 +1,11 @@
+// Bookmark model
+// TODO: Define bookmark schema and validation
+CREATE TABLE bookmarks (
+    id SERIAL PRIMARY KEY,
+    user_id INT,
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+    vacation_id INT,
+    CONSTRAINT fk_vacation FOREIGN KEY (vacation_id) REFERENCES vacations(id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

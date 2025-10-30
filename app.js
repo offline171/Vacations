@@ -7,11 +7,11 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 
-const bookmarksRouter = require("./backend/api/bookmarks");
-const ratingsRouter = require("./backend/api/ratings");
-const usersRouter = require("./backend/api/users");
-const vacationSpotRouter = require("./backend/api/vacationSpotRouter");
-const pool = require("./backend/services/db");
+const bookmarksRouter = require("./backend/src/api/bookmarks");
+const ratingsRouter = require("./backend/src/api/ratings");
+const usersRouter = require("./backend/src/api/users");
+const vacationSpotRouter = require("./backend/src/api/vacations");
+const pool = require("./backend/src/services/db");
 const port = 3001;
 
 const app = express();
