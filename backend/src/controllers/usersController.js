@@ -1,8 +1,12 @@
 const db = require('../services/db');
 const passport = require('passport');
 
-exports.getUsers = (req, res) => {
-    res.render("users");
+exports.signUpForm = (req, res) => {
+    res.render("sign-up");
+}
+
+exports.signUpEnter = (req, res) => {
+   redirect("/");
 }
 
 exports.logOut = (req, res) => {
@@ -14,6 +18,6 @@ exports.logOut = (req, res) => {
     }
 }
 
-exports.signUpForm = (req, res) => {
-    res.render("sign-up");
+exports.getUsers = (req, res) => {
+    res.render("users");
 }

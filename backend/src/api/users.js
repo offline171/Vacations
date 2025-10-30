@@ -6,7 +6,8 @@ const usersController = require('../controllers/usersController');
 const passport = require('passport');
 const usersRouter = Router();
 
-usersRouter.get("/sign-up", usersController.signUpForm)
+usersRouter.get("/sign-up", usersController.signUpForm);
+usersRouter.post("/sign-up", usersController.signUpEnter);
 usersRouter.post("/log-in", passport.authenticate('local', {
     successRedirect: "/",
     failureRedirect: "/log-in",
