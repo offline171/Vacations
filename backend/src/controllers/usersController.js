@@ -9,6 +9,10 @@ exports.signUpEnter = (req, res) => {
    redirect("/");
 }
 
+exports.logInForm = (req, res) => {
+    res.render("log-in");
+}
+
 exports.logOut = (req, res) => {
     if(req.session){
         req.session = null;

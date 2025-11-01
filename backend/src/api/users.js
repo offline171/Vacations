@@ -8,6 +8,7 @@ const usersRouter = Router();
 
 usersRouter.get("/sign-up", usersController.signUpForm);
 usersRouter.post("/sign-up", usersController.signUpEnter);
+usersRouter.get("/log-in", usersController.logInForm);
 usersRouter.post("/log-in", passport.authenticate('local', {
     successRedirect: "/",
     failureRedirect: "/log-in",
