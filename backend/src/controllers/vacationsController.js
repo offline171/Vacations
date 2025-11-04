@@ -1,4 +1,4 @@
-const db = require('../services/db');
+const pool = require('../services/db');
 
 exports.getVacations = (req, res) => {
     res.render("vacations");

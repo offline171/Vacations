@@ -1,4 +1,4 @@
-const db = require('../services/db');
+const pool = require('../services/db');
 const passport = require('passport');
 
 exports.signUpForm = (req, res) => {
@@ -23,5 +23,5 @@ exports.logOut = (req, res) => {
 }
 
 exports.getUsers = (req, res) => {
-    res.render("users");
+    res.render("users", {user: req.user});
 }

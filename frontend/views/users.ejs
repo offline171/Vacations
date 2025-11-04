@@ -11,7 +11,7 @@
     <a href="/ratings">See Ratings</a><br>
     <a href="/bookmarks">See Bookmarks</a><br>
     <% if (locals.user) { %>
-        <h2>Welcome, <%= locals.user.username %>!</h2>
+        <h2>Welcome, <%= user.username %>!</h2>
         <a href="/log-out">Log out</a><br>
     <% } else { %>
         <a href="/users/log-in">Log in</a><br>
