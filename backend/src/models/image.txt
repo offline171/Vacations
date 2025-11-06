@@ -3,6 +3,7 @@ CREATE TABLE images (
     vacation_id INT,
     CONSTRAINT fk_vacation FOREIGN KEY (vacation_id) REFERENCES vacations(id),
     name VARCHAR(50) UNIQUE NOT NULL,
+    file BYTEA NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
