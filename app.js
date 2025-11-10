@@ -12,7 +12,7 @@ const ratingsRouter = require("./backend/src/api/ratings");
 const usersRouter = require("./backend/src/api/users");
 const vacationSpotRouter = require("./backend/src/api/vacations");
 const pool = require("./backend/src/services/db");
-const port = 3001;
+const port = 3002;
 
 const app = express();
 app.set("views", path.join(__dirname, "./frontend/views"));
