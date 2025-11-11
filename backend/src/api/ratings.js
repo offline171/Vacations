@@ -6,7 +6,7 @@ const ratingsController = require('../controllers/ratingsController');
 const ratingsRouter = Router();
 
 ratingsRouter.get("/", ratingsController.getRatings);
-ratingsRouter.post("/:id", ratingsController.ratingEnter);
+ratingsRouter.post("/:id", ratingsController.postRating);
 ratingsRouter.put("/:id", ratingsController.putRating);
 ratingsRouter.delete("/:id", ratingsController.deleteRating);
 

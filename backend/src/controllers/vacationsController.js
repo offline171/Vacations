@@ -4,7 +4,7 @@ exports.getVacations = (req, res) => {
     res.render("vacations");
 }
 
-exports.vacationsEnter = async (req, res) => {
+exports.postVacation = async (req, res) => {
    try {
     const currentDate = new Date();
     await pool.query(

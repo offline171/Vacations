@@ -6,5 +6,5 @@ const bookmarksController = require('../controllers/bookmarksController');
 const bookmarksRouter = Router();
 
 bookmarksRouter.get("/", bookmarksController.getBookmarks);
-bookmarksRouter.post("/:id", bookmarksController.bookmarkEnter);
+bookmarksRouter.post("/:id", bookmarksController.postBookmark);
 module.exports = bookmarksRouter;

@@ -1,11 +1,11 @@
 const pool = require('../services/db');
 const passport = require('passport');
 
-exports.signUpForm = (req, res) => {
+exports.getSignUp = (req, res) => {
     res.render("sign-up");
 }
 
-exports.signUpEnter = async (req, res) => {
+exports.postSignUp = async (req, res) => {
    try {
     const currentDate = new Date();
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -21,11 +21,11 @@ exports.signUpEnter = async (req, res) => {
    }
 }
 
-exports.logInForm = (req, res) => {
+exports.getLogIn = (req, res) => {
     res.render("log-in");
 }
 
-exports.logOut = (req, res) => {
+exports.getLogOut = (req, res) => {
     if(req.session){
         req.session = null;
         res.redirect("/");

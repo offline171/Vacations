@@ -4,7 +4,7 @@ exports.getBookmarks = (req, res) => {
     res.render("bookmarks");
 }
 
-exports.bookmarkEnter = async (req, res) => {
+exports.postBookmark = async (req, res) => {
    try {
     const currentDate = new Date();
     await pool.query(

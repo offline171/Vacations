@@ -4,7 +4,7 @@ exports.getRatings = (req, res) => {
     res.render("ratings");
 }
 
-exports.ratingEnter = async (req, res) => {
+exports.postRating = async (req, res) => {
    try {
     const currentDate = new Date();
     await pool.query(
@@ -22,8 +22,8 @@ exports.putRating = async (req, res) => {
     try {
         const currentDate = new Date();
         await pool.query(
-            "UPDATE RATINGS SET review = $1, updated_at = $2 WHERE id = $3",
-            [req.body.review, currentDate, req.params.id]
+            "UPDATE RATINGS SET review = $1, updated_at = $2 WHERE id = $3 AND user_id = $4",
+            [req.body.review, currentDate, req.params.id, req.user.id]
         );
         res.redirect("/vacations");
     } catch (error) {
@@ -35,6 +35,7 @@ exports.putRating = async (req, res) => {
 exports.deleteRating = async (req, res) => {
     try {
         await pool.query(
+            //Prevent users from deleting ratings they do not own
             "DELETE FROM RATINGS WHERE id = $1 AND user_id = $2",
             [req.params.id, req.user.id]
         );
