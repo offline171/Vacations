@@ -7,5 +7,7 @@ const ratingsRouter = Router();
 
 ratingsRouter.get("/", ratingsController.getRatings);
 ratingsRouter.post("/:id", ratingsController.ratingEnter);
+ratingsRouter.put("/:id", ratingsController.putRating);
+ratingsRouter.delete("/:id", ratingsController.deleteRating);
 
 module.exports = ratingsRouter;
