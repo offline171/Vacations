@@ -6,5 +6,6 @@ const ratingsController = require('../controllers/ratingsController');
 const ratingsRouter = Router();
 
 ratingsRouter.get("/", ratingsController.getRatings);
+ratingsRouter.post("/:id", ratingsController.ratingEnter);
 
 module.exports = ratingsRouter;
