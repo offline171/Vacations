@@ -13,6 +13,16 @@ async function fetchVacations() {
     }
 }
 
+async function fetchVacation(vacation_id) {
+    try{
+        const { vacations } = await pool.query("SELECT * FROM vacations WHERE id = $1", [vacation_id]);
+        return vacations[0];
+    } catch (err) {
+        console.error("Error fetching vacations:", err);
+        throw err;
+    }
+}
+
 module.exports = {
     fetchVacations
 };
