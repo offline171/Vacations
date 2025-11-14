@@ -1,17 +1,18 @@
 const pool = require('../services/db');
 const passport = require('passport');
 
-exports.signUpForm = (req, res) => {
+exports.getSignUp = (req, res) => {
     res.render("sign-up");
 }
 
-exports.signUpEnter = async (req, res) => {
+exports.postSignUp = async (req, res) => {
    try {
+    const currentDate = new Date();
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const hashedEmail = await bcrypt.hash(req.body.email, 10);
     await pool.query(
-        "INSERT INTO USERS (username, email, password) VALUES ($1, $2, $3)",
-        [req.body.username, hashedEmail, hashedPassword]
+        "INSERT INTO USERS (username, email, password, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)",
+        [req.body.username, hashedEmail, hashedPassword, currentDate, currentDate]
     );
     res.redirect("/");
    } catch (error) {
@@ -20,11 +21,11 @@ exports.signUpEnter = async (req, res) => {
    }
 }
 
-exports.logInForm = (req, res) => {
+exports.getLogIn = (req, res) => {
     res.render("log-in");
 }
 
-exports.logOut = (req, res) => {
+exports.getLogOut = (req, res) => {
     if(req.session){
         req.session = null;
         res.redirect("/");

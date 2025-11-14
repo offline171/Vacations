@@ -6,5 +6,6 @@ const vacationsController = require('../controllers/vacationsController');
 const vacationsRouter = Router();
 
 vacationsRouter.get("/", vacationsController.getVacations);
+vacationsRouter.post("/", vacationsController.postVacation);
 
 module.exports = vacationsRouter;
