@@ -4,6 +4,10 @@ exports.getVacations = (req, res) => {
     res.render("vacations");
 }
 
+exports.getVacationsForm = (req, res) => {
+    res.render("vacationForm");
+}
+
 exports.postVacation = async (req, res) => {
    try {
     const currentDate = new Date();
