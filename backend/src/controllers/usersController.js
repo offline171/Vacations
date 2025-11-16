@@ -11,7 +11,7 @@ exports.postSignUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const hashedEmail = await bcrypt.hash(req.body.email, 10);
     await pool.query(
-        "INSERT INTO USERS (username, email, password, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)",
+        "INSERT INTO users (username, email, password, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)",
         [req.body.username, hashedEmail, hashedPassword, currentDate, currentDate]
     );
     res.redirect("/");
@@ -31,6 +31,17 @@ exports.getLogOut = (req, res) => {
         res.redirect("/");
     } else{
         return next(error);
+    }
+}
+
+exports.getUser = async (req, res, next) => {
+    try {
+        const { rows } = await pool.query("SELECT * FROM users");
+        const user = rows[0];
+        res.render("user", {user: user});
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        next(error);
     }
 }
 

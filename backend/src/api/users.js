@@ -14,6 +14,7 @@ usersRouter.post("/log-in", passport.authenticate('local', {
     failureRedirect: "/log-in",
 }));
 usersRouter.get("/log-out", usersController.getLogOut);
+usersRouter.get("/:id", usersController.getUser);
 usersRouter.get("/", usersController.getUsers);
 
 module.exports = usersRouter;
