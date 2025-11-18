@@ -1,7 +1,18 @@
 const pool = require('../services/db');
 
-exports.getBookmarks = (req, res) => {
-    res.render("bookmarks");
+
+exports.getBookmarksForm = (req, res) => {
+    res.render("bookmarks-form");
+}
+
+exports.getBookmark = async (req, res, next) => {
+    try{
+        const {rows} = await pool.query("SELECT * FROM bookmarks WHERE id = $1", [req.params.id]);
+        res.render("bookmark", {bookmark: rows[0]});
+    } catch (error) {
+        console.error("Error fetching bookmark:", error);
+        next(error);
+    }
 }
 
 exports.postBookmark = async (req, res) => {
@@ -16,4 +27,8 @@ exports.postBookmark = async (req, res) => {
     console.error("Error during bookmark creation:", error);
     next(error);
    }
+}
+
+exports.getBookmarks = (req, res) => {
+    res.render("bookmarks");
 }
