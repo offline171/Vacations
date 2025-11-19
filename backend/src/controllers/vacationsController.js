@@ -8,7 +8,7 @@ exports.getVacations = (req, res) => {
 exports.getVacation = async (req, res, next) => {
     try{
         const {vacations} = await pool.query("SELECT * FROM vacation_spots WHERE id = $1", [req.params.id]);
-        res.render("vacation", {vacation: vacations[0]});
+        res.render("vacation", {vacation: vacations[0], id: req.params.id});
     } catch (error) {
         console.error("Error fetching vacation:", error);
         next(error);

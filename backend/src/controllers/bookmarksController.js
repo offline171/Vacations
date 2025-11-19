@@ -22,7 +22,7 @@ exports.postBookmark = async (req, res) => {
         "INSERT INTO bookmarks (user_id, vacation_id, created_at, updated_at) VALUES ($1, $2, $3, $4)",
         [req.user.id, req.params.id, currentDate, currentDate]
     );
-    res.redirect("/");
+    res.redirect('/' + req.params.id);
    } catch (error) {
     console.error("Error during bookmark creation:", error);
     next(error);
