@@ -1,5 +1,19 @@
 const pool = require('../services/db');
 
+exports.getRatingsForm = (req, res) => {
+    res.render("ratings-form");
+}
+
+exports.getRating = async (req, res, next) => {
+    try{
+        const {rows} = await pool.query("SELECT * FROM ratings WHERE id = $1", [req.params.id]);
+        res.render("rating", {rating: rows[0]});
+    } catch (error) {
+        console.error("Error fetching rating:", error);
+        next(error);
+    }  
+}
+
 exports.getRatings = (req, res) => {
     res.render("ratings");
 }
