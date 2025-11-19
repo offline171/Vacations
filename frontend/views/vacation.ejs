@@ -10,6 +10,11 @@
     <a href="/users">See Users</a><br>
     <a href="/ratings">See Ratings</a><br>
     <a href="/bookmarks">See Bookmarks</a><br>
+    <li>
+        <h2><%= vacation.name %></h2>
+        <p>Location: <%= vacation.location %></p>
+        <p><%= vacation.description %></p>
+    </li>
     <form action="/bookmarks/<%= id %>" method="POST">
         <button type="submit">Bookmark this Vacation</button>
     </form>
