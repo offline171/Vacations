@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vacation Spots</title>
+</head>
+<body>
+    <h1>Vacation Spot</h1>
+    <a>See Vacations</a><br>
+    <a href="/users">See Users</a><br>
+    <a href="/ratings">See Ratings</a><br>
+    <a href="/bookmarks">See Bookmarks</a><br>
+    <li>
+        <h2><%= vacation.name %></h2>
+        <p>Location: <%= vacation.location %></p>
+        <p><%= vacation.description %></p>
+    </li>
+    <form action="/bookmarks/<%= id %>" method="POST">
+        <button type="submit">Bookmark this Vacation</button>
+    </form>
+    <a href="/ratings/<%= id %>">Rate this Vacation</a>
+</body>

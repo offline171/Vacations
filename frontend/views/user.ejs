@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Account</title>
+    <title>View User</title>
 </head>
 <body>
-    <h1>Users</h1>
+    <h1>View User</h1>
     <a href="/">See Vacations</a><br>
-    <a>See Users</a><br>
+    <a href="/users">See Users</a><br>
     <a href="/ratings">See Ratings</a><br>
     <a href="/bookmarks">See Bookmarks</a><br>
-    <% if (locals.user) { %>
-        <h2>Welcome, <%= user.username %>!</h2>
+    <% if(locals.user && user.id == viewedUser.id) { %>
+        <h2>This is you, <%= viewedUser.username %>!</h2>
         <a href="/users/log-out">Log out</a><br>
     <% } else { %>
+        <h2>Viewing user: <%= viewedUser.username %></h2>
         <a href="/users/log-in">Log in</a><br>
         <a href="/users/sign-up">Sign up</a><br>
     <% } %>

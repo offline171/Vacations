@@ -8,3 +8,5 @@ CREATE TABLE vacation_spots (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+//Consider adding price param

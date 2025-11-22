@@ -10,4 +10,13 @@
     <a href="/users">See Users</a><br>
     <a href="/ratings">See Ratings</a><br>
     <a href="/bookmarks">See Bookmarks</a><br>
+    <ul>
+        <% for (var i = 0; i < vacations.length; i++) { %>
+            <li>
+                <h2><%= vacations[i].name %></h2>
+                <p>Location: <%= vacations[i].location %></p>
+                <p><%= vacations[i].description %></p>
+            </li>
+        <% } %>
+    </ul>
 </body>
