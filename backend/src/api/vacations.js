@@ -7,6 +7,7 @@ const vacationsRouter = Router();
 
 vacationsRouter.get("/form", vacationsController.getVacationsForm);
 vacationsRouter.post("/", vacationsController.postVacation);
+vacationsRouter.post("/:id/image", vacationsController.postVacationImage);
 vacationsRouter.get("/:id", vacationsController.getVacation);
 vacationsRouter.get("/", vacationsController.getVacations);
 

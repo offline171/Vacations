@@ -33,3 +33,17 @@ exports.postVacation = async (req, res, next) => {
     next(error);
    }
 }
+
+exports.postVacationImage = async (req, res, next) => {
+    try {
+        const imageUrl = req.body.imageUrl;
+        const currentDate = new Date();
+        await pool.query("INSERT INTO images (vacation_id, url) VALUES ($1, $2, $3, $4)", 
+            [req.params.id, imageUrl, currentDate, currentDate]
+        );
+        res.redurect("/:id");
+    } catch (error) {
+        console.error("Error uploading vacation image:", error);
+        next(error);
+    }
+}
