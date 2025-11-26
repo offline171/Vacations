@@ -5,6 +5,7 @@ const { Router } = require('express');
 const vacationsController = require('../controllers/vacationsController');
 const vacationsRouter = Router();
 
+vacationsRouter.get("/:id/image", vacationsController.getVacationsImagesForm);
 vacationsRouter.get("/form", vacationsController.getVacationsForm);
 vacationsRouter.get("/:id", vacationsController.getVacation);
 vacationsRouter.get("/", vacationsController.getVacations);

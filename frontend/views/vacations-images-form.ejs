@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Vacation Image</title>
+</head>
+
+<body>
+    <h1>Create Vacation Image</h1>
+    <a href="/">See Vacations</a><br>
+    <a href="/users">See Users</a><br>
+    <a href="/ratings">See Ratings</a><br>
+    <a href="/bookmarks">See Bookmarks</a><br>
+    <form action="/<%= id %>/image" method="POST" enctype="multipart/form-data">
+        <label for="imageFile">Image File</label>
+        <input type="file" id="imageFile" name="imageFile" accept="image/*" required />
+        <button type="submit">Submit Image</button>
+    </form>
+</body>
