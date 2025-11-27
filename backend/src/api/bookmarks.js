@@ -11,4 +11,6 @@ bookmarksRouter.get("/", bookmarksController.getBookmarks);
 
 bookmarksRouter.post(":id", bookmarksController.postBookmark);
 
+bookmarksRouter.delete("/:id", bookmarksController.deleteBookmark);
+
 module.exports = bookmarksRouter;

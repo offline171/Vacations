@@ -32,3 +32,13 @@ exports.postBookmark = async (req, res) => {
 exports.getBookmarks = (req, res) => {
     res.render("bookmarks");
 }
+
+exports.deleteBookmark = async (req, res, next) => {
+    try {
+        await pool.query("DELETE FROM bookmarks WHERE id = $1", [req.params.id]);
+        res.redirect('/' + req.params.id);
+    } catch (error) {
+        console.error("Error deleting bookmark:", error);
+        next(error);
+    }
+}
