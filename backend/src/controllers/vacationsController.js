@@ -44,11 +44,35 @@ exports.postVacationImage = async (req, res, next) => {
         const imageFileName = req.file.originalname;
         const currentDate = new Date();
         await pool.query("INSERT INTO images (vacation_id, name, file, created_at, updated_at) VALUES ($1, $2, $3, $4)",
-            [req.params.id, imageFile, currentDate, currentDate]
+            [req.params.id, imageFileName, imageFile, currentDate, currentDate]
         );
         res.redirect("/:id");
     } catch (error) {
         console.error("Error uploading vacation image:", error);
+        next(error);
+    }
+}
+
+exports.putVacation = async (req, res, next) => {
+    try {
+        const currentDate = new Date();
+        await pool.query(
+            "UPDATE vacation_spots SET name = $1, location = $2, description = $3, updated_at = $4 WHERE id = $5",
+            [req.body.name, req.body.location, req.body.description, currentDate, req.params.id]
+        );
+        res.redirect("/:id");
+    } catch (error) {
+        console.error("Error updating vacation:", error);
+        next(error);
+    }
+}
+
+exports.deleteVacation = async (req, res, next) => {
+    try {
+        await pool.query("DELETE FROM vacation_spots WHERE id = $1", [req.params.id]);
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error deleting vacation:", error);
         next(error);
     }
 }

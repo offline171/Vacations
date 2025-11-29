@@ -13,4 +13,8 @@ vacationsRouter.get("/", vacationsController.getVacations);
 vacationsRouter.post("/:id/image", vacationsController.postVacationImage);
 vacationsRouter.post("/", vacationsController.postVacation);
 
+vacationsRouter.put("/:id", vacationsController.putVacation);
+
+vacationsRouter.delete("/:id", vacationsController.deleteVacation);
+
 module.exports = vacationsRouter;
