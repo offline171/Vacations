@@ -34,6 +34,10 @@ exports.getLogOut = (req, res) => {
     }
 }
 
+exports.getForgotPassword = (req, res) => {
+    res.render("forgot-password");
+}
+
 exports.getUser = async (req, res, next) => {
     try {
         const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [req.params.id]);
@@ -47,6 +51,18 @@ exports.getUser = async (req, res, next) => {
 
 exports.getUsers = (req, res) => {
     res.render("users", { user: req.user });
+}
+
+exports.postForgotPassword = async (req, res, next) => {
+    try {
+        const { rows } = await pool.query("SELECT * FROM users WHERE email = $1", [req.body.email]);
+        const user = rows[0];
+        //placeholder for email sending
+        res.render("users", { user: req.user, viewedUser: user });
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        next(error);
+    }
 }
 
 exports.putPassword = async (req, res, next) => {
