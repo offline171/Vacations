@@ -18,4 +18,7 @@ usersRouter.post("/log-in", passport.authenticate('local', {
     failureRedirect: "/log-in",
 }));
 
+usersRouter.put("/:id/password", usersController.putPassword);
+usersRouter.put("/:id/email", usersController.putEmail);
+
 module.exports = usersRouter;
