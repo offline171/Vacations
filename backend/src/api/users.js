@@ -9,6 +9,7 @@ const usersRouter = Router();
 usersRouter.get("/sign-up", usersController.getSignUp);
 usersRouter.get("/log-in", usersController.getLogIn);
 usersRouter.get("/log-out", usersController.getLogOut);
+usersRouter.get("/forgot-password", usersController.getForgotPassword);
 usersRouter.get("/:id", usersController.getUser);
 usersRouter.get("/", usersController.getUsers);
 
@@ -17,5 +18,9 @@ usersRouter.post("/log-in", passport.authenticate('local', {
     successRedirect: "/",
     failureRedirect: "/log-in",
 }));
+usersRouter.post("/forgot-password", usersController.postForgotPassword);
+
+usersRouter.put("/:id/password", usersController.putPassword);
+usersRouter.put("/:id/email", usersController.putEmail);
 
 module.exports = usersRouter;
