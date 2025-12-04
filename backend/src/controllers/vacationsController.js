@@ -1,8 +1,14 @@
 const pool = require('../services/db');
 
 
-exports.getVacations = (req, res) => {
-    res.render("vacations");
+exports.getVacations = async (req, res, next) => {
+    try {
+        const { vacations } = await pool.query("SELECT * FROM vacation_spots");
+        res.render("vacations", { vacations });
+    } catch (error) {
+        console.error("Error fetching vacations:", error);
+        next(error);
+    }
 }
 
 exports.getVacation = async (req, res, next) => {

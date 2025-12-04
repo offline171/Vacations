@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
 </head>
+
 <body>
-    <h1>Users</h1>
+    <h1>User Account</h1>
     <a href="/">See Vacations</a><br>
     <a>See Users</a><br>
     <a href="/ratings">See Ratings</a><br>
@@ -13,8 +15,8 @@
     <% if (locals.user) { %>
         <h2>Welcome, <%= user.username %>!</h2>
         <a href="/users/log-out">Log out</a><br>
-    <% } else { %>
-        <a href="/users/log-in">Log in</a><br>
-        <a href="/users/sign-up">Sign up</a><br>
-    <% } %>
+        <% } else { %>
+            <a href="/users/log-in">Log in</a><br>
+            <a href="/users/sign-up">Sign up</a><br>
+            <% } %>
 </body>
