@@ -42,7 +42,7 @@ exports.getUser = async (req, res, next) => {
     try {
         const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [req.params.id]);
         const user = rows[0];
-        res.render("users", { user: req.user, viewedUser: user });
+        res.render("user", { user: req.user, viewedUser: user });
     } catch (error) {
         console.error("Error fetching user:", error);
         next(error);
