@@ -7,10 +7,12 @@
 </head>
 <body>
     <h1>Vacation Spot</h1>
-    <a>See Vacations</a><br>
-    <a href="/users">See Users</a><br>
-    <a href="/ratings">See Ratings</a><br>
-    <a href="/bookmarks">See Bookmarks</a><br>
+    <ul>
+        <li><a href="/" class="active">See Vacations</a></li>
+        <li><a href="/ratings">See Ratings</a><li>
+        <li><a href="/bookmarks">See Bookmarks</a></li>
+        <li style="float:right"><a href="/users">See Users</a></li>
+    </ul>
     <li>
         <h2><%= vacation.name %></h2>
         <p>Location: <%= vacation.location %></p>

@@ -9,10 +9,12 @@
 
 <body>
     <h1>Create Vacation Image</h1>
-    <a href="/">See Vacations</a><br>
-    <a href="/users">See Users</a><br>
-    <a href="/ratings">See Ratings</a><br>
-    <a href="/bookmarks">See Bookmarks</a><br>
+    <ul>
+        <li><a href="/" class="active">See Vacations</a></li>
+        <li><a href="/ratings">See Ratings</a><li>
+        <li><a href="/bookmarks">See Bookmarks</a></li>
+        <li style="float:right"><a href="/users">See Users</a></li>
+    </ul>
     <form action="/<%= id %>/image" method="POST" enctype="multipart/form-data">
         <label for="imageFile">Image File</label>
         <input type="file" id="imageFile" name="imageFile" accept="image/*" required />
