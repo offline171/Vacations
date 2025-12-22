@@ -1,28 +1,41 @@
 // VacationService CRUD operations
 // TODO: Implement vacation spot CRUD logic
-const pool = require('../db/pool');
+const pool = require('../services/db');
 
 
-async function fetchVacations() {
-    try{
-        const { vacations } = await pool.query("SELECT * FROM vacation_spots");
-        return vacations;
-    } catch (err) {
-        console.error("Error fetching vacations:", err);
-        throw err;
+// get items for id
+async function fetchVacations(){
+  try{
+    const { rows } = await pool.query("SELECT * FROM vacation_spots");
+    const items = rows;
+    if(items) {
+      return items;
+      console.log('Fetched vacations successfully');
+    } else {
+      console.log('Vacations not found');
     }
+  } catch(error) {
+    console.error('Error, cannot find vacations.');
+  }
 }
 
-async function fetchVacation(vacation_id) {
-    try{
-        const { vacations } = await pool.query("SELECT * FROM vacation_spots WHERE id = $1", [vacation_id]);
-        return vacations[0];
-    } catch (err) {
-        console.error("Error fetching vacations:", err);
-        throw err;
+// get items for id
+async function fetchVacation(vacation_id){
+  try{
+    const { rows } = await pool.query("SELECT * FROM vacation_spots WHERE id = $1", [vacation_id]);
+    const item = rows[0];
+    if(item) {
+      return item;
+      console.log('Fetched vacation successfully');
+    } else {
+      console.log('Vacation not found');
     }
+  } catch(error) {
+    console.error('Error, cannot find vacation.');
+  }
 }
 
 module.exports = {
-    fetchVacations
+    fetchVacations,
+    fetchVacation
 };

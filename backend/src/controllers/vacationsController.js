@@ -1,25 +1,18 @@
 const pool = require('../services/db');
+//get services from vacationService
+const vacationService = require('../services/vacationService');
 
 
 exports.getVacations = async (req, res, next) => {
-    try {
-        const { vacations } = await pool.query("SELECT * FROM vacation_spots");
-        res.render("vacations", { vacations });
-    } catch (error) {
-        console.error("Error fetching vacations:", error);
-        next(error);
-    }
+    let vacations = null;
+    vacations = (await vacationService.fetchVacations()); 
+    res.render("vacations", { vacations: vacations });
 }
 
 exports.getVacation = async (req, res, next) => {
-    try {
-        const { vacations } = await pool.query("SELECT * FROM vacation_spots WHERE id = $1", [req.params.id]);
-        res.render("vacation", { vacation: vacations[0], id: req.params.id });
-    } catch (error) {
-        console.error("Error fetching vacation:", error);
-        next(error);
-    }
-
+    let vacation = null;
+    vacation = (await vacationService.fetchVacation(req.params.id)); 
+    res.render("vacation", { vacation: vacation });
 }
 
 exports.getVacationsForm = (req, res) => {
