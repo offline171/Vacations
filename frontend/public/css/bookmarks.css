@@ -1,0 +1,58 @@
+/* Page-specific styles for bookmarks.ejs - demo purposes */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7fbff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #0a74da;
+  color: white;
+  padding: 12px 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+ul.nav {
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px;
+  background: #ffffff;
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid #e3e8ee;
+}
+
+ul.nav li a {
+  text-decoration: none;
+  color: #0a74da;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+ul.nav li a.active {
+  background: #eaf4ff;
+  font-weight: 600;
+}
+
+.container {
+  padding: 20px;
+}
+
+.bookmark-list {
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+
+.bookmark-list li {
+  background: #fff;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #eef3f8;
+}

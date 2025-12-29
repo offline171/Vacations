@@ -22,6 +22,7 @@ app.use(session({secret: "dogs", resave: false, saveUninitialized: false}));
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, "./frontend/public")));
 
 app.use("/bookmarks", bookmarksRouter);
 app.use("/ratings", ratingsRouter);

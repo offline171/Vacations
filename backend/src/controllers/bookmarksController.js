@@ -30,7 +30,7 @@ exports.postBookmark = async (req, res) => {
 }
 
 exports.getBookmarks = (req, res) => {
-    res.render("bookmarks");
+    res.render("bookmarks", { stylesheet: "/css/bookmarks.css" });
 }
 
 exports.deleteBookmark = async (req, res, next) => {
