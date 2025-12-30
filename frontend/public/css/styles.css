@@ -25,3 +25,22 @@ ul li a:hover:not(.active){
 ul li a.active{
     background-color: limegreen;
 }
+
+header {
+  background: skyblue;
+  color: white;
+  padding: 12px 20px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7fbff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}

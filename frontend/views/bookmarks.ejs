@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookmarks</title>
-    <link rel="stylesheet" href="<%= stylesheet || '/css/styles.css' %>">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
         <h1>Bookmarks</h1>
     </header>
-    <ul class="nav">
-        <li><a href="/" class="active">See Vacations</a></li>
+    <ul>
+        <li><a href="/">See Vacations</a></li>
         <li><a href="/ratings">See Ratings</a></li>
-        <li><a href="/bookmarks">See Bookmarks</a></li>
-        <li style="margin-left:auto"><a href="/users">See Users</a></li>
+        <li><a href="/bookmarks" class="active">See Bookmarks</a></li>
+        <li style="float:right"><a href="/users">See Users</a></li>
     </ul>
-    <div class="container">
-        <ul class="bookmark-list">
-            <li>Sample bookmark item — replace with dynamic content</li>
-        </ul>
-    </div>
 </body>
