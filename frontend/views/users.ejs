@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <h1>User Account</h1>
+    <header>
+        <h1>User Account</h1>
+    </header>
     <ul>
-        <li><a href="/" class="active">See Vacations</a></li>
+        <li><a href="/">See Vacations</a></li>
         <li><a href="/ratings">See Ratings</a></li>
         <li><a href="/bookmarks">See Bookmarks</a></li>
-        <li style="float:right"><a href="/users">See Users</a></li>
+        <li style="float:right"><a href="/users" class="active">See Users</a></li>
     </ul>
     <% if (locals.user) { %>
         <h2>Welcome, <%= user.username %>!</h2>
