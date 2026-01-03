@@ -15,13 +15,19 @@
         <li><a href="/bookmarks">See Bookmarks</a></li>
         <li style="float:right"><a href="/users">See Users</a></li>
     </ul>
+    <% if(bookmarked) { %>
+        <form action="/bookmarks/<%= id %>?_method=DELETE" method="POST"></form>
+            <button type="submit">Remove Bookmark</button>
+        </form>
+    <% } else {%>
+        <form action="/bookmarks/<%= id %>" method="POST">
+            <button type="submit">Add Bookmark</button>
+        </form>
+    <% } %>
     <li>
         <h2><%= vacation.name %></h2>
         <p>Location: <%= vacation.location %></p>
         <p><%= vacation.description %></p>
     </li>
-    <form action="/bookmarks/<%= id %>" method="POST">
-        <button type="submit">Bookmark this Vacation</button>
-    </form>
     <a href="/ratings/<%= id %>">Rate this Vacation</a>
 </body>
