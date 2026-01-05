@@ -31,5 +31,6 @@ async function isBookmarked(vacation_id, user_id) {
 }
 
 module.exports = {
-    fetchBookmarks
+    fetchBookmarks,
+    isBookmarked
 };

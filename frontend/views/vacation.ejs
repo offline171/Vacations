@@ -30,4 +30,13 @@
         <p><%= vacation.description %></p>
     </li>
     <a href="/ratings/<%= id %>">Rate this Vacation</a>
+    <h3>Ratings:</h3>
+    <ul>
+        <% for (var i = 0; i < ratings.length; i++) { %>
+            <li>
+                <p>Rating: <%= ratings[i].review %></p>
+                <p>Comment: <%= ratings[i].comment %></p>
+                <% //remember to add comments to ratings. Also the name "review" being for the number rating is misleading %>
+            </li>
+        <% } %>
 </body>

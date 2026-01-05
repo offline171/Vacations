@@ -46,5 +46,7 @@ async function fetchRating(vacation_id, user_id) {
 }
 
 module.exports = {
-    fetchRatings
+    fetchRatings,
+    fetchVacationRatings,
+    fetchRating
 };
