@@ -1,18 +1,24 @@
 const pool = require('../services/db');
 //get services from vacationService
 const vacationService = require('../services/vacationService');
+const bookmarkService = require('../services/bookmarkService');
 
 
 exports.getVacations = async (req, res, next) => {
     let vacations = null;
+    let bookmarks = null;
+    if(locals.user){
+        bookmarks = await bookmarkService.fetchBookmarks(locals.user.id);
+    }
     vacations = (await vacationService.fetchVacations()); 
-    res.render("vacations", { vacations: vacations });
+    res.render("index", { vacations: vacations, bookmarks: bookmarks });
 }
 
 exports.getVacation = async (req, res, next) => {
     let vacation = null;
     vacation = (await vacationService.fetchVacation(req.params.id)); 
-    res.render("vacation", { vacation: vacation });
+    let bookmarked = (await bookmarkService.isBookmarked(req.params.id, req.user.id));
+    res.render("vacation", { vacation: vacation, bookmarked: bookmarked });
 }
 
 exports.getVacationsForm = (req, res) => {
