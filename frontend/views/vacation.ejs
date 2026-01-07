@@ -29,7 +29,15 @@
         <p>Location: <%= vacation.location %></p>
         <p><%= vacation.description %></p>
     </li>
-    <a href="/ratings/<%= id %>">Rate this Vacation</a>
+    <form action="/ratings/<%= id %>" method="POST">
+        <label for="review">Rate this vacation (1-5):</label>
+        <input id="review" name="review" type="number" min="1" max="5" required />
+        <br/>
+        <label for="comment">Leave a comment:</label>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+        <br/>
+        <button type="submit">Submit Rating</button>
+    </form>
     <h3>Ratings:</h3>
     <ul>
         <% for (var i = 0; i < ratings.length; i++) { %>

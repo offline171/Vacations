@@ -22,8 +22,8 @@ exports.postRating = async (req, res) => {
    try {
     const currentDate = new Date();
     await pool.query(
-        "INSERT INTO ratings (user_id, vacation_id, review, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)",
-        [user_id, vacation_id, req.body.review, currentDate, currentDate]
+        "INSERT INTO ratings (user_id, vacation_id, review, comment, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6)",
+        [user_id, vacation_id, req.body.review, req.body.comment, currentDate, currentDate]
     );
     res.redirect("/");
    } catch (error) {
