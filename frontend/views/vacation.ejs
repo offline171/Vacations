@@ -49,11 +49,18 @@
                 <% } %>
                 <% //remember to add comments to ratings. Also the name "review" being for the number rating is misleading %>
                 <% if(locals.user && locals.user.id == ratings[i].user_id) { %>
-                    <form action="/ratings/<%= ratings[i].id %>?_method=PUT" method="POST">
-                        <button type="submit">Edit Your Rating</button>
+                    <button id="toggleButton">Edit Your Rating</button>"
+                    <form id="hiddenTextBox" action="/ratings/<%= ratings[i].id %>?_method=PUT" method="POST">
+                        <label for="review">Rate this vacation (1-5):</label>
+                        <input id="review" name="review" type="number" min="1" max="5" value="<%= ratings[i].review %>" required />
+                        <br/>
+                        <label for="comment">Leave a comment:</label>
+                        <textarea id="comment" name="comment" rows="4" cols="50"><%= ratings[i].comment %></textarea>
+                        <br/>
+                        <button type="submit">Submit</button>
                     </form>
                     <form action="/ratings/<%= ratings[i].id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete Your Rating</button>
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete your rating?');">Delete Your Rating</button>
                     </form>
                 <% } %>
             </li>
