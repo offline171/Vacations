@@ -42,6 +42,7 @@
     <ul>
         <% for (var i = 0; i < ratings.length; i++) { %>
             <li>
+                <p>User: <%= ratings[i].user_name %></p>
                 <p>Rating: <%= ratings[i].review %></p>
                 <p>Comment: <%= ratings[i].comment %></p>
                 <% if(ratings[i].created_at != ratings[i].updated_at){ %>
