@@ -3,9 +3,15 @@ CREATE TABLE images (
     vacation_id INT,
     CONSTRAINT fk_vacation FOREIGN KEY (vacation_id) REFERENCES vacation_spots(id),
     name VARCHAR(50) UNIQUE NOT NULL,
-    file BYTEA NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    priority BOOLEAN,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 Add name column to images table
+Change file column to url column
+Make sure urls end in jpg or add it to the end of it when displaying it like
+    var imgURL = rating[i].url + ".jpg"
+priority is to determine what shows up first, and might also be used for the thumbnail
+    in the vacations list

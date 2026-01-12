@@ -6,7 +6,7 @@ const pool = require('../services/db');
 // get items for id
 async function fetchVacationImages(vacation_id){
   try{
-    const { rows } = await pool.query("SELECT * FROM images WHERE vacation_id = $1", [vacation_id]);
+    const { rows } = await pool.query("SELECT * FROM images WHERE vacation_id = $1 ORDER BY priority, created_at DESC", [vacation_id]);
     const items = rows;
     if(items) {
       console.log('Fetched images successfully');
@@ -20,6 +20,5 @@ async function fetchVacationImages(vacation_id){
 }
 
 module.exports = {
-    fetchVacations,
-    fetchVacation
+    fetchVacationImages
 };
