@@ -1,9 +1,10 @@
 const pool = require('../services/db');
+const { locals } = require('../app');
 //get services from vacationService
 const vacationService = require('../services/vacationService');
 const bookmarkService = require('../services/bookmarkService');
 const ratingService = require('../services/ratingService');
-
+const imageService = require('../services/imageService');
 
 exports.getVacations = async (req, res, next) => {
     let vacations = null;
@@ -20,7 +21,8 @@ exports.getVacation = async (req, res, next) => {
     vacation = (await vacationService.fetchVacation(req.params.id)); 
     let bookmarked = (await bookmarkService.isBookmarked(req.params.id, req.user.id));
     let ratings = (await ratingService.fetchVacationRatings(req.params.id));
-    res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings });
+    let images = (await imageService.fetchVacationImages(req.params.id));
+    res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images });
 }
 
 exports.getVacationsForm = (req, res) => {

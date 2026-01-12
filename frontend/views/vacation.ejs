@@ -24,6 +24,16 @@
             <button type="submit">Add Bookmark</button>
         </form>
     <% } %>
+    <% if(images.length > 0) { %>
+        <h3>Images:</h3>
+        <ul>
+            <% for (var i = 0; i < images.length; i++) { %>
+                <li>
+                    <img src="<%= images[i].url %>" alt="Vacation Image" style="max-width:300px; max-height:200px;"/>
+                </li>
+            <% } %>
+        </ul>
+    <% } %>
     <li>
         <h2><%= vacation.name %></h2>
         <p>Location: <%= vacation.location %></p>
