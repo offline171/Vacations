@@ -18,7 +18,7 @@
     <ul>
         <% for (var i = 0; i < vacations.length; i++) { %>
             <li>
-                <% if(bookmarked) { %>
+                <% if(bookmarkIDs && bookmarkIDs.has(vacations[i].id)) { %>
                     <p>This vacation is bookmarked!</p>
                 <% } %>
                 <h2><%= vacations[i].name %></h2>
