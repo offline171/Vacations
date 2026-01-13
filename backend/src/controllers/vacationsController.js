@@ -21,7 +21,10 @@ exports.getVacations = async (req, res, next) => {
 exports.getVacation = async (req, res, next) => {
     let vacation = null;
     vacation = (await vacationService.fetchVacation(req.params.id)); 
-    let bookmarked = (await bookmarkService.isBookmarked(req.params.id, req.user.id));
+    let bookmarked = false;
+    if(req.user){
+        bookmarked = (await bookmarkService.isBookmarked(req.params.id, req.user.id));
+    }
     let ratings = (await ratingService.fetchVacationRatings(req.params.id));
     let images = (await imageService.fetchVacationImages(req.params.id));
     res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images });
