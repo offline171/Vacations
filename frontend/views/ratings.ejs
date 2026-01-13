@@ -17,4 +17,23 @@
         <li><a href="/bookmarks">See Bookmarks</a></li>
         <li style="float:right"><a href="/users">See Users</a></li>
     </ul>
+    <% if (ratings && ratings.length > 0) { %>
+        <ul>
+            <% for (var i = 0; i < ratings.length; i++) { %>
+                <li>
+                    <h2>Rating ID: <%= ratings[i].id %></h2>
+                    <p>Vacation ID: <%= ratings[i].vacation_id %></p>
+                    <p>User ID: <%= ratings[i].user_id %></p>
+                    <p>Score: <%= ratings[i].score %></p>
+                    <p>Comment: <%= ratings[i].comment %></p>
+                    <p>Date: <%= ratings[i].created_at.toDateString() %></p>
+                    <% if (ratings[i].updated_at != ratings[i].created_at) { %>
+                        <p>Updated At: <%= ratings[i].updated_at.toDateString() %></p>
+                    <% } %>
+                </li>
+            <% } %>
+        </ul>
+    <% } else { %>
+        <p>No ratings available. Consider ratings vacation spots you visited!</p>
+    <% } %>
 </body>
