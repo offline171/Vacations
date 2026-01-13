@@ -27,7 +27,7 @@ exports.getVacation = async (req, res, next) => {
     }
     let ratings = (await ratingService.fetchVacationRatings(req.params.id));
     let images = (await imageService.fetchVacationImages(req.params.id));
-    res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images });
+    res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images, id: req.params.id });
 }
 
 exports.getVacationsForm = (req, res) => {

@@ -25,7 +25,7 @@
         </form>
     <% } %>
     <a href="/<%= id %>/image-form">Add Images</a>
-    <% if(images.length > 0) { %>
+    <% if(images && images.length > 0) { %>
         <h3>Images:</h3>
         <ul>
             <% for (var i = 0; i < images.length; i++) { %>
@@ -50,31 +50,36 @@
         <button type="submit">Submit Rating</button>
     </form>
     <h3>Ratings:</h3>
-    <ul>
-        <% for (var i = 0; i < ratings.length; i++) { %>
-            <li>
-                <p>User: <%= ratings[i].user_name %></p>
-                <p>Rating: <%= ratings[i].review %></p>
-                <p>Comment: <%= ratings[i].comment %></p>
-                <% if(ratings[i].created_at != ratings[i].updated_at){ %>
-                    <p>edited</p>
-                <% } %>
-                <% //remember to add comments to ratings. Also the name "review" being for the number rating is misleading %>
-                <% if(locals.user && locals.user.id == ratings[i].user_id) { %>
-                    <button id="toggleButton">Edit Your Rating</button>"
-                    <form id="hiddenTextBox" action="/ratings/<%= ratings[i].id %>?_method=PUT" method="POST">
-                        <label for="review">Rate this vacation (1-5):</label>
-                        <input id="review" name="review" type="number" min="1" max="5" value="<%= ratings[i].review %>" required />
-                        <br/>
-                        <label for="comment">Leave a comment:</label>
-                        <textarea id="comment" name="comment" rows="4" cols="50"><%= ratings[i].comment %></textarea>
-                        <br/>
-                        <button type="submit">Submit</button>
-                    </form>
-                    <form action="/ratings/<%= ratings[i].id %>?_method=DELETE" method="POST">
-                        <button type="submit" onclick="return confirm('Are you sure you want to delete your rating?');">Delete Your Rating</button>
-                    </form>
-                <% } %>
-            </li>
-        <% } %>
+    <% if (ratings && ratings.length > 0) { %>
+        <ul>
+            <% for (var i = 0; i < ratings.length; i++) { %>
+                <li>
+                    <p>User: <%= ratings[i].user_name %></p>
+                    <p>Rating: <%= ratings[i].review %></p>
+                    <p>Comment: <%= ratings[i].comment %></p>
+                    <% if(ratings[i].created_at != ratings[i].updated_at){ %>
+                        <p>edited</p>
+                    <% } %>
+                    <% //remember to add comments to ratings. Also the name "review" being for the number rating is misleading %>
+                    <% if(locals.user && locals.user.id == ratings[i].user_id) { %>
+                        <button id="toggleButton">Edit Your Rating</button>"
+                        <form id="hiddenTextBox" action="/ratings/<%= ratings[i].id %>?_method=PUT" method="POST">
+                            <label for="review">Rate this vacation (1-5):</label>
+                            <input id="review" name="review" type="number" min="1" max="5" value="<%= ratings[i].review %>" required />
+                            <br/>
+                            <label for="comment">Leave a comment:</label>
+                            <textarea id="comment" name="comment" rows="4" cols="50"><%= ratings[i].comment %></textarea>
+                            <br/>
+                            <button type="submit">Submit</button>
+                        </form>
+                        <form action="/ratings/<%= ratings[i].id %>?_method=DELETE" method="POST">
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete your rating?');">Delete Your Rating</button>
+                        </form>
+                    <% } %>
+                </li>
+            <% } %>
+        </ul>
+    <% } else { %>
+        <p>No ratings yet. Be the first to rate this vacation!</p>
+    <% } %>
 </body>
