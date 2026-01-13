@@ -1,6 +1,6 @@
 // RatingService CRUD operations
 // TODO: Implement rating CRUD logic
-const pool = require('../db/pool');
+const pool = require('./db');
 
 
 async function fetchRatings(userId) {

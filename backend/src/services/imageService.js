@@ -1,6 +1,6 @@
 // VacationService CRUD operations
 // TODO: Implement vacation spot CRUD logic
-const pool = require('../services/db');
+const pool = require('./db');
 
 
 // get items for id
