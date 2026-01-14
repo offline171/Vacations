@@ -8,3 +8,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+Consider getting rid of email or properly implementing it
+How to properly implement it:
+https://www.passportjs.org/tutorials/email/

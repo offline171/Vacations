@@ -8,6 +8,9 @@ CREATE TABLE ratings (
     vacation_id INT,
     CONSTRAINT fk_vacation FOREIGN KEY (vacation_id) REFERENCES vacation_spots(id),
     review INT,
+    comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+Add comment column, consider something other than text

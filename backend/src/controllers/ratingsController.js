@@ -36,8 +36,8 @@ exports.putRating = async (req, res) => {
     try {
         const currentDate = new Date();
         await pool.query(
-            "UPDATE ratings SET review = $1, updated_at = $2 WHERE id = $3 AND user_id = $4",
-            [req.body.review, currentDate, req.params.id, req.user.id]
+            "UPDATE ratings SET review = $1, comment = $2, updated_at = $3 WHERE id = $4 AND user_id = $5",
+            [req.body.review, req.body.comment, currentDate, req.params.id, req.user.id]
         );
         res.redirect("/");
     } catch (error) {
