@@ -19,6 +19,11 @@
     </ul>
     <% if (ratings && ratings.length > 0) { %>
         <ul>
+            <% if(locals.user && locals.user.id == userId) { %>
+                <h2>Your Ratings:</h2>
+            <% } else { %>
+                <h2><%= ratings[0].user_name %>'s Ratings:</h2>
+            <% } %>
             <% for (var i = 0; i < ratings.length; i++) { %>
                 <li>
                     <h2>Rating ID: <%= ratings[i].id %></h2>
@@ -33,7 +38,9 @@
                 </li>
             <% } %>
         </ul>
-    <% } else { %>
+    <% } else if (locals.user && locals.user.id == viewedUserId) { %>
         <p>No ratings available. Consider ratings vacation spots you visited!</p>
+    <% } else {%>
+        <p>This user has not rated any vacation spots yet.</p>
     <% } %>
 </body>

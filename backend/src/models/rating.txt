@@ -13,7 +13,6 @@ CREATE TABLE ratings (
     comment TEXT
 );
 
-Add comment column, consider something other than text
 This is the order in the database, I suggest putting comment
 after review and before the timestamps when inserting with column
 names given, since those can be in any order as long as they have
