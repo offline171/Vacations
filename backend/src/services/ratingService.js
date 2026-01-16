@@ -1,11 +1,11 @@
 // RatingService CRUD operations
 // TODO: Implement rating CRUD logic
-const pool = require('../db/pool');
+const pool = require('./db');
 
 
 async function fetchRatings(userId) {
     try{
-        const { ratings } = await pool.query("SELECT * FROM ratings WHERE user_id = $1 ORDER BY date, id", [userId]);
+        const { ratings } = await pool.query("SELECT * FROM ratings WHERE user_id = $1 ORDER BY created_at, id", [userId]);
         if(ratings) {
             return ratings;
         } else {
@@ -19,7 +19,7 @@ async function fetchRatings(userId) {
 
 async function fetchVacationRatings(vacation_id) {
     try{
-        const { ratings } = await pool.query("SELECT * FROM ratings WHERE vacation_id = $1 ORDER BY date, id", [vacation_id]);
+        const { ratings } = await pool.query("SELECT * FROM ratings WHERE vacation_id = $1 ORDER BY created_at, id", [vacation_id]);
         if(ratings) {
             return ratings;
         } else {
@@ -46,5 +46,7 @@ async function fetchRating(vacation_id, user_id) {
 }
 
 module.exports = {
-    fetchRatings
+    fetchRatings,
+    fetchVacationRatings,
+    fetchRating
 };

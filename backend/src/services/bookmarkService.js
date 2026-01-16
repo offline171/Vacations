@@ -1,6 +1,6 @@
 // BookmarkService CRUD operations
 // TODO: Implement bookmark CRUD logic
-const pool = require('../db/pool');
+const pool = require('./db');
 
 async function fetchBookmarks(userId) {
     try{
@@ -12,6 +12,16 @@ async function fetchBookmarks(userId) {
         }
     } catch (err) {
         console.error("Error fetching bookmarks:", err);
+        throw err;
+    }
+}
+
+async function bookmarkIDs(listOfBookmarks) {
+    try{
+        const ids = new Set(listOfBookmarks.map(bookmark => bookmark.vacation_id));
+        return ids;
+    } catch (err) {
+        console.error("Error fetching bookmark IDs:", err);
         throw err;
     }
 }
@@ -31,5 +41,7 @@ async function isBookmarked(vacation_id, user_id) {
 }
 
 module.exports = {
-    fetchBookmarks
+    fetchBookmarks,
+    bookmarkIDs,
+    isBookmarked
 };
