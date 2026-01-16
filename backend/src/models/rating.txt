@@ -8,9 +8,13 @@ CREATE TABLE ratings (
     vacation_id INT,
     CONSTRAINT fk_vacation FOREIGN KEY (vacation_id) REFERENCES vacation_spots(id),
     review INT,
-    comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    comment TEXT
 );
 
 Add comment column, consider something other than text
+This is the order in the database, I suggest putting comment
+after review and before the timestamps when inserting with column
+names given, since those can be in any order as long as they have
+corresponding values.

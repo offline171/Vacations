@@ -18,10 +18,10 @@
         <li style="float:right"><a href="/users">See Users</a></li>
     </ul>
     <form action="/<%= id %>/image" method="POST" enctype="multipart/form-data">
-        <label for="imageURL">Image URL</label>
-        <input id="imageURL" name="imageURL" type="text" required />
         <label for="imageName">Image Name</label>
         <input id="imageName" name="imageName" type="text" required />
+        <label for="imageURL">Image URL</label>
+        <input id="imageURL" name="imageURL" type="text" required />
         <button type="submit">Submit Image</button>
     </form>
 </body>

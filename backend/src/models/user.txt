@@ -12,3 +12,6 @@ CREATE TABLE users (
 Consider getting rid of email or properly implementing it
 How to properly implement it:
 https://www.passportjs.org/tutorials/email/
+
+Decided not necessary, accounts aren't particularly important enough. Also costs money
+If needed then implement log in with google which is more reasonably priced
