@@ -52,3 +52,10 @@ h1 {
 .visible {
   display: block !important;
 }
+
+#thumbnail img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
