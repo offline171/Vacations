@@ -19,6 +19,22 @@ async function fetchVacationImages(vacation_id){
   }
 }
 
+async function fetchImages(){
+  try{
+    const { rows } = await pool.query("SELECT * FROM images ORDER BY priority, created_at DESC NULLS LAST");
+    const items = rows;
+    if(items) {
+      console.log('Fetched images successfully');
+      return items;
+    } else {
+      console.log('Images not found');
+      return [];
+    }
+  } catch(error) {
+    console.error('Error, cannot find images.');
+  }
+}
+
 module.exports = {
     fetchVacationImages
 };
