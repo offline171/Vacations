@@ -27,6 +27,10 @@ app.use(express.static(path.join(__dirname, "./frontend/public")));
 
 app.use("/bookmarks", bookmarksRouter);
 app.use("/ratings", ratingsRouter);
+app.post("/users/log-in", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/users/log-in"
+})); // Added this line to handle login POST requests because local strategy was not being used in usersRouter for some reason
 app.use("/users", usersRouter);
 app.use("/", vacationSpotRouter);
 
