@@ -16,7 +16,8 @@ exports.getVacations = async (req, res, next) => {
         bookmarkIDs = await bookmarkService.bookmarkIDs(bookmarks);
     }
     let images = await imageService.fetchImages();
-    res.render("index", { vacations: vacations, bookmarks: bookmarks, bookmarkIDs: bookmarkIDs, images: images });
+    res.render("index", { vacations: vacations, bookmarks: bookmarks, bookmarkIDs: bookmarkIDs, 
+        images: images, imageService: imageService });
 }
 
 exports.getVacation = async (req, res, next) => {
