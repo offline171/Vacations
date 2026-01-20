@@ -1,6 +1,5 @@
 const pool = require('../services/db');
-const passport = require('passport');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 exports.getSignUp = (req, res) => {
     res.render("sign-up");
@@ -11,7 +10,7 @@ exports.postSignUp = async (req, res, next) => {
         const currentDate = new Date();
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         await pool.query(
-            "INSERT INTO users (username, password_hash, created_at, updated_at) VALUES ($1, $2, $3, $4)",
+            "INSERT INTO users (username, password, created_at, updated_at) VALUES ($1, $2, $3, $4)",
             [req.body.username, hashedPassword, currentDate, currentDate]
         );
         res.redirect("/");

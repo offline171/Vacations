@@ -19,6 +19,7 @@ app.set("views", path.join(__dirname, "./frontend/views"));
 app.set("view engine", "ejs");
 
 app.use(session({secret: "dogs", resave: false, saveUninitialized: false}));
+app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -31,8 +32,8 @@ app.use("/", vacationSpotRouter);
 
 passport.use(new LocalStrategy(async (username, password, done) => {
   try {
-    const result = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
-    const user = result.rows[0];  
+    const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
+    const user = rows[0];  
       if (!user) {
         return done(null, false, { message: 'Incorrect username' });
       }
@@ -61,6 +62,8 @@ passport.deserializeUser(async (id, done) => {
     done(err);
   }
 });
+
+console.log(passport);
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
