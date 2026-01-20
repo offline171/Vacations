@@ -29,7 +29,7 @@ exports.getVacation = async (req, res, next) => {
     }
     let ratings = (await ratingService.fetchVacationRatings(req.params.id));
     let images = (await imageService.fetchVacationImages(req.params.id));
-    res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images, id: req.params.id });
+    res.render("vacation", { user: req.user, vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images, id: req.params.id });
 }
 
 exports.getVacationsForm = (req, res) => {
@@ -37,7 +37,7 @@ exports.getVacationsForm = (req, res) => {
 }
 
 exports.getVacationsImagesForm = (req, res) => {
-    res.render("vacations-images-form");
+    res.render("vacations-images-form", { id: req.params.id });
 }
 
 exports.postVacation = async (req, res, next) => {
