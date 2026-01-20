@@ -43,7 +43,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
       }
       return done(null, user);
     } catch (err) {
-        return done(err);
+      return done(err);
     }
   })
 );
