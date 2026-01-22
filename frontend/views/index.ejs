@@ -22,6 +22,7 @@
                     <p>This vacation is bookmarked!</p>
                 <% } %>
                 <h2><%= vacations[i].name %></h2>
+                <div id="thumbnail"><img src="<%= imageService.findImage(vacations[i].id, images) %>" alt="Vacation Image"/></div>
                 <p>Location: <%= vacations[i].location %></p>
                 <p><%= vacations[i].description %></p>
                 <a href="/<%= vacations[i].id %>">View Details</a>

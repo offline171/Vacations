@@ -14,8 +14,14 @@ exports.getRating = async (req, res, next) => {
     }  
 }
 
-exports.getRatings = (req, res) => {
-    res.render("ratings");
+exports.getRatings = async (req, res) => {
+    try{
+        const {rows} = await pool.query("SELECT * FROM ratings WHERE user_id = $1", [req.user.id]);
+        res.render("ratings", {ratings: rows, viewedUserId: req.params.userId});
+    } catch (error) {
+        console.error("Error fetching ratings:", error);
+        next(error);
+    }
 }
 
 exports.postRating = async (req, res) => {

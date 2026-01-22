@@ -19,6 +19,7 @@ app.set("views", path.join(__dirname, "./frontend/views"));
 app.set("view engine", "ejs");
 
 app.use(session({secret: "dogs", resave: false, saveUninitialized: false}));
+app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -26,13 +27,17 @@ app.use(express.static(path.join(__dirname, "./frontend/public")));
 
 app.use("/bookmarks", bookmarksRouter);
 app.use("/ratings", ratingsRouter);
+app.post("/users/log-in", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/users/log-in"
+})); // Added this line to handle login POST requests because local strategy was not being used in usersRouter for some reason
 app.use("/users", usersRouter);
 app.use("/", vacationSpotRouter);
 
 passport.use(new LocalStrategy(async (username, password, done) => {
   try {
-    const result = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
-    const user = result.rows[0];  
+    const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
+    const user = rows[0];  
       if (!user) {
         return done(null, false, { message: 'Incorrect username' });
       }
@@ -42,7 +47,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
       }
       return done(null, user);
     } catch (err) {
-        return done(err);
+      return done(err);
     }
   })
 );
@@ -61,6 +66,8 @@ passport.deserializeUser(async (id, done) => {
     done(err);
   }
 });
+
+console.log(passport);
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);

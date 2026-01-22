@@ -15,7 +15,9 @@ exports.getVacations = async (req, res, next) => {
     if(bookmarks){
         bookmarkIDs = await bookmarkService.bookmarkIDs(bookmarks);
     }
-    res.render("index", { vacations: vacations, bookmarks: bookmarks, bookmarkIDs: bookmarkIDs });
+    let images = await imageService.fetchImages();
+    res.render("index", { vacations: vacations, bookmarks: bookmarks, bookmarkIDs: bookmarkIDs, 
+        images: images, imageService: imageService });
 }
 
 exports.getVacation = async (req, res, next) => {
@@ -27,7 +29,7 @@ exports.getVacation = async (req, res, next) => {
     }
     let ratings = (await ratingService.fetchVacationRatings(req.params.id));
     let images = (await imageService.fetchVacationImages(req.params.id));
-    res.render("vacation", { vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images, id: req.params.id });
+    res.render("vacation", { user: req.user, vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images, id: req.params.id });
 }
 
 exports.getVacationsForm = (req, res) => {
@@ -35,7 +37,7 @@ exports.getVacationsForm = (req, res) => {
 }
 
 exports.getVacationsImagesForm = (req, res) => {
-    res.render("vacations-images-form");
+    res.render("vacations-images-form", { id: req.params.id });
 }
 
 exports.postVacation = async (req, res, next) => {
