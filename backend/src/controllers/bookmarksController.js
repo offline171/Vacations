@@ -18,6 +18,7 @@ exports.getBookmark = async (req, res, next) => {
 exports.postBookmark = async (req, res) => {
    try {
     const currentDate = new Date();
+    console.log("Creating bookmark for user:", req.user.id, "and vacation:", req.params.id);
     await pool.query(
         "INSERT INTO bookmarks (user_id, vacation_id, created_at, updated_at) VALUES ($1, $2, $3, $4)",
         [req.user.id, req.params.id, currentDate, currentDate]
@@ -35,10 +36,13 @@ exports.getBookmarks = (req, res) => {
 
 exports.deleteBookmark = async (req, res, next) => {
     try {
-        await pool.query("DELETE FROM bookmarks WHERE id = $1", [req.params.id]);
+        console.log("Deleting bookmark with vacation_id:", req.params.id);
+        await pool.query("DELETE FROM bookmarks WHERE vacation_id = $1 AND user_id = $2", [req.params.id, req.user.id]);
         res.redirect('/' + req.params.id);
     } catch (error) {
         console.error("Error deleting bookmark:", error);
         next(error);
     }
 }
+
+// note to self, look into shell stuff like google gemini 
