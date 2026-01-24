@@ -4,6 +4,9 @@
 const { Router } = require('express');
 const ratingsController = require('../controllers/ratingsController'); 
 const ratingsRouter = Router();
+const methodOverride = require('method-override');
+
+ratingsRouter.use(methodOverride('_method'));
 
 ratingsRouter.get("/form", ratingsController.getRatingsForm);
 ratingsRouter.get("/:id", ratingsController.getRating);

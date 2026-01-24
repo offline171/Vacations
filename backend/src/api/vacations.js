@@ -4,6 +4,9 @@
 const { Router } = require('express');
 const vacationsController = require('../controllers/vacationsController');
 const vacationsRouter = Router();
+const methodOverride = require('method-override');
+
+vacationsRouter.use(methodOverride('_method'));
 
 vacationsRouter.get("/:id/image-form", vacationsController.getVacationsImagesForm);
 vacationsRouter.get("/form", vacationsController.getVacationsForm);
