@@ -18,7 +18,6 @@ exports.getBookmark = async (req, res, next) => {
 exports.postBookmark = async (req, res) => {
    try {
     const currentDate = new Date();
-    console.log("Creating bookmark for user:", req.user.id, "and vacation:", req.params.id);
     await pool.query(
         "INSERT INTO bookmarks (user_id, vacation_id, created_at, updated_at) VALUES ($1, $2, $3, $4)",
         [req.user.id, req.params.id, currentDate, currentDate]
@@ -46,3 +45,4 @@ exports.deleteBookmark = async (req, res, next) => {
 }
 
 // note to self, look into shell stuff like google gemini 
+// cli part is something I need to learn more about

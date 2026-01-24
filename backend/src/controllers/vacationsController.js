@@ -27,7 +27,6 @@ exports.getVacation = async (req, res, next) => {
     if(req.user){
         bookmarked = (await bookmarkService.isBookmarked(req.params.id, req.user.id));
     }
-    console.log("Bookmarked status:", bookmarked);
     let ratings = (await ratingService.fetchVacationRatings(req.params.id));
     let images = (await imageService.fetchVacationImages(req.params.id));
     res.render("vacation", { user: req.user, vacation: vacation, bookmarked: bookmarked, ratings: ratings, images: images, id: req.params.id });
