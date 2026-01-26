@@ -35,10 +35,14 @@ exports.getBookmarks = (req, res) => {
 
 exports.deleteBookmark = async (req, res, next) => {
     try {
-        await pool.query("DELETE FROM bookmarks WHERE id = $1", [req.params.id]);
+        console.log("Deleting bookmark with vacation_id:", req.params.id);
+        await pool.query("DELETE FROM bookmarks WHERE vacation_id = $1 AND user_id = $2", [req.params.id, req.user.id]);
         res.redirect('/' + req.params.id);
     } catch (error) {
         console.error("Error deleting bookmark:", error);
         next(error);
     }
 }
+
+// note to self, look into shell stuff like google gemini 
+// cli part is something I need to learn more about

@@ -5,6 +5,9 @@ const { Router } = require('express');
 const usersController = require('../controllers/usersController');
 const usersRouter = Router();
 const passport = require("passport");
+const methodOverride = require('method-override');
+
+usersRouter.use(methodOverride('_method'));
 
 usersRouter.get("/sign-up", usersController.getSignUp);
 usersRouter.get("/log-in", usersController.getLogIn);

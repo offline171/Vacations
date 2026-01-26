@@ -17,7 +17,7 @@
         <li style="float:right"><a href="/users">See Users</a></li>
     </ul>
     <% if(bookmarked) { %>
-        <form action="/bookmarks/<%= id %>?_method=DELETE" method="POST"></form>
+        <form action="/bookmarks/<%= id %>/delete?_method=DELETE" method="POST">
             <button type="submit">Remove Bookmark</button>
         </form>
     <% } else {%>
@@ -25,6 +25,7 @@
             <button type="submit">Add Bookmark</button>
         </form>
     <% } %>
+    <br/>
     <a href="/<%= id %>/image-form">Add Images</a>
     <% if(images && images.length > 0) { %>
         <h3>Images:</h3>
