@@ -28,12 +28,12 @@
                 <li>
                     <h2>Rating ID: <%= ratings[i].id %></h2>
                     <p>Vacation ID: <%= ratings[i].vacation_id %></p>
-                    <p>User ID: <%= ratings[i].user_id %></p>
+                    <p>User: <%= ratings[i].user_name %></p>
                     <p>Score: <%= ratings[i].score %></p>
                     <p>Comment: <%= ratings[i].comment %></p>
-                    <p>Date: <%= ratings[i].created_at.toDateString() %></p>
+                    <p>Date: <%= moment(ratings[i].created_at).format('MMMM Do, YYYY') %></p>
                     <% if (ratings[i].updated_at != ratings[i].created_at) { %>
-                        <p>Updated At: <%= ratings[i].updated_at.toDateString() %></p>
+                        <p>Updated At: <%= moment(ratings[i].updated_at).format('MMMM Do, YYYY') %></p>
                     <% } %>
                 </li>
             <% } %>
