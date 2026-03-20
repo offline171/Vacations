@@ -25,6 +25,7 @@ exports.getRatings = async (req, res) => {
 }
 
 exports.postRating = async (req, res) => {
+    console.log("Received rating data:", req.body);
    try {
     const currentDate = new Date();
     await pool.query(
